@@ -28,9 +28,9 @@ public class YodafyClienteTCP {
 		Socket socketServicio=null;
 		
 		try {
-			// Creamos un socket que se conecte a "hist" y "port":
+			// Creamos un socket que se conecte a "host" y "port":
 			//////////////////////////////////////////////////////
-			// socketServicio= ... (Completar)
+			socketServicio=new Socket(host, port);
 			//////////////////////////////////////////////////////			
 			
 			InputStream inputStream = socketServicio.getInputStream();
