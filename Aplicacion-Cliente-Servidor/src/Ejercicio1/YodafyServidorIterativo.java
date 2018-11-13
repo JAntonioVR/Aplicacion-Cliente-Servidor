@@ -22,7 +22,7 @@ public class YodafyServidorIterativo {
 		byte []buffer=new byte[256];
 		// Número de bytes leídos
 		int bytesLeidos=0;
-		ServerSocket socketServidor;
+		ServerSocket socketServidor=null;
                 
                 
                 
@@ -38,9 +38,9 @@ public class YodafyServidorIterativo {
 				
 				// Aceptamos una nueva conexión con accept()
 				/////////////////////////////////////////////////
-                                ServerSocket socketServicio=null;
+                               Socket socketServicio=null;
                                 try {
-                                    socketServicio.accept();
+                                    socketServicio=socketServidor.accept();
                                 } catch (IOException e) {
                                     System.err.println("Error: no se pudo aceptar la conexión solicitada ");
                                 }
