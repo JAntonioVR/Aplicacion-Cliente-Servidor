@@ -21,7 +21,7 @@ public class YodafyClienteTCP {
 	public static void main(String[] args) {
 		
 		byte []buferEnvio;
-		byte []buferRecepcion=new byte[256];
+		byte []buferRecepcion=new byte[1024];
 		int bytesLeidos=0;
 		
 		// Nombre del host donde se ejecuta el servidor:
@@ -32,24 +32,23 @@ public class YodafyClienteTCP {
                 InetAddress direccion;
 		// Socket para la conexión UDP
 		DatagramSocket socketServicio;
-		
 		try {
 			// Creamos un socket que se conecte a "hist" y "port":
 			//////////////////////////////////////////////////////
-			socketServicio=new DatagramSocket(port);
+			socketServicio=new DatagramSocket();
 			//////////////////////////////////////////////////////			
-
+                       
 			
 			// Si queremos enviar una cadena de caracteres, hay que pasarla primero
 			// a un array de bytes:
 			buferEnvio="Al monte del volcán debes ir sin demora".getBytes();
-			
-			// Enviamos el array;
+		
 			//////////////////////////////////////////////////////
-			direccion=InetAddress.getByName("198.162.0.0");//Ni idea de que poner aqui
+			direccion=InetAddress.getByName(host);
                         paquete=new DatagramPacket(buferEnvio, buferEnvio.length, direccion, port);
                         			
 			socketServicio.send(paquete);
+                        
 			//////////////////////////////////////////////////////
 			
 			
