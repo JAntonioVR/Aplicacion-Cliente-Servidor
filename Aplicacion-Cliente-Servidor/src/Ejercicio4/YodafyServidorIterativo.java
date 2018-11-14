@@ -39,8 +39,6 @@ public class YodafyServidorIterativo {
 				
 				// Aceptamos una nueva conexión
 				/////////////////////////////////////////////////
-				paquete=new DatagramPacket(buffer, buffer.length);
-                                socketServicio.receive(paquete);
 				//////////////////////////////////////////////////
 				
 				// Creamos un objeto de la clase ProcesadorYodafy, pasándole como 
@@ -48,7 +46,6 @@ public class YodafyServidorIterativo {
 				// Este esquema permite que se puedan usar hebras más fácilmente.
 				ProcesadorYodafy procesador=new ProcesadorYodafy(socketServicio);
 				procesador.procesa();
-				
 			} while (true);
 		} catch (IOException e) {
 			System.err.println("Error al escuchar en el puerto "+port);
